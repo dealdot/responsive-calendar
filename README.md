@@ -21,7 +21,7 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/dealdot/responsive-calendar.git
+git clone git@github.com:dealdot/responsive-calendar.git
 ```
 
 ### 2. 安装依赖
