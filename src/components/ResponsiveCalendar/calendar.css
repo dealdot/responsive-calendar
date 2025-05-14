@@ -1,0 +1,131 @@
+/* ========== 页面基础布局设置 ========== */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置 body 居中对齐内容 */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== 日历外层容器 ========== */
+.calendar-wrapper {
+  width: 100%;
+  /* max-width: 800px; */ /* 可根据需要开启限制最大宽度 */
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* 日历标题 */
+.calendar-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* 当前选中的日期展示栏 */
+.calendar-selected {
+  background-color: #e6f4ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+/* ========== 控件区域样式（年/月选择、切换按钮） ========== */
+/* 自动换行适配小屏幕 */
+.ant-space {
+  flex-wrap: wrap;
+}
+
+/* ========== 月视图样式：按7列网格排列日期 ========== */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+/* 星期行标题 */
+.calendar-header {
+  font-weight: bold;
+  color: #999;
+  text-align: center;
+  padding: 6px 0;
+}
+
+/* ========== 年视图网格布局：3 列布局，宽度最大 1024px ========== */
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1024px;
+  padding: 0 16px;
+}
+
+/* ========== 通用日期格子样式（月/年都适用） ========== */
+.calendar-cell {
+  text-align: center;
+  padding: 24px 0; /* 放大格子以提升可点击区域 */
+  border-radius: 8px;
+  font-size: 18px;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* 鼠标悬停高亮 */
+.calendar-cell:hover {
+  background-color: #f0f0f0;
+}
+
+/* 今日样式：加边框 */
+.calendar-cell.today {
+  border: 1px solid #1677ff;
+}
+
+/* 选中样式：蓝底白字 */
+.calendar-cell.selected {
+  background-color: #1677ff;
+  color: white;
+  font-weight: bold;
+}
+
+/* 非当月日期样式（浅灰） */
+.calendar-cell.dimmed {
+  color: #ccc;
+}
+
+/* ========== 响应式布局：移动端优化 ========== */
+@media (max-width: 768px) {
+  /* 移动端缩小整体 padding */
+  .calendar-wrapper {
+    padding: 12px;
+  }
+
+  /* 日期格子缩小字体和高度 */
+  .calendar-cell {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  /* 日期选择栏字体变小 */
+  .calendar-selected {
+    font-size: 14px;
+  }
+
+  /* 日历标题变小 */
+  .calendar-title {
+    font-size: 20px;
+  }
+
+  /* 年视图缩小间距与边距 */
+  .year-grid {
+    padding: 0 8px;
+    gap: 12px;
+  }
+}
